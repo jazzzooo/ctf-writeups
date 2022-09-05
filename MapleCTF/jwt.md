@@ -247,4 +247,4 @@ $$ s - r = \frac{h}{k} $$
 
 $$ k = \frac{h}{s - r} $$
 
-As a second exersize, try modifying the given code to make use of this method instead.
+As a second exercise, try modifying the given code to make use of this method instead.
