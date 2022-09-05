@@ -237,3 +237,14 @@ $$ s_1 - s_2 = \frac{(h_1 + rp) - (h_2 + rp)}{k} = \frac{h_1 - h_2}{k} $$
 $$ k = \frac{h_1 - h_2}{s_1 - s_2} $$
 
 Exercise for the reader, how do you recover the private key after you find the nonce this way?
+
+## An even nicer solution
+In this special case where `k = p`, we can recover the nonce from a single token.
+
+$$ s = \frac{h + rk}{k} = \frac{h}{k} + r $$
+
+$$ s - r = \frac{h}{k} $$
+
+$$ k = \frac{h}{s - r} $$
+
+As a second exersize, try modifying the given code to make use of this method instead.
