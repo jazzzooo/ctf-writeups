@@ -1,7 +1,7 @@
 # brsaby
 
 ## The Challenge
-This was a basic RSA challange with with the following code:
+This was a basic RSA challenge with with the following code:
 ```python
 from Crypto.Util.number import getPrime, bytes_to_long
 from secret import FLAG
@@ -28,13 +28,17 @@ hint = 2017210894190001839428447356135294400562239596233943357129936159390578867
 ```
 
 ## The Solution
+To decrypt the flag, we must factor `N`.
+This will allow us to compute phi, from which we can decrypt the inverse of e to undo the encryption.
+
+
 The laziest solution is to let a Computer algebra system (CAS) such as SymPy or SageMath solve this for you.
 ```python
 from sympy import solve, symbols
 p, q = symbols("p q")
 P, Q = solve([p**4 - q**3 - hint, p * q - N], [p, q])[0]
 ```
-The `solve` method in SymPy takes equations a list of equations all equal to zero, and a list of symbols to solve for.
+The `solve` method in SymPy takes a list of equations all equal to zero, and a list of symbols to solve for.
 We make each equation zero by subtracting the right side from the left.
 Thereafter we simply decrypt rsa as follows:
 
@@ -68,3 +72,25 @@ m = pow(enc, d, N)
 
 print(long_to_bytes(m))
 ```
+
+## Solving by Hand
+The problem can also be solved by hand, but we will still need to use external tools for the final step.
+For this example, lets use much smaller primes.
+
+$$ N = pq = 323 $$
+
+$$ hint = p^4 - q^3 = 76662 $$
+
+We will solve for `q` and substitute it in.
+
+$$ q = \frac{N}{p} = \frac{323}{p} $$
+
+$$ 76662 = p^4 - q^3 = p^4 - (\frac{323}{p})^3 = p^4 - 33698267q^{-1} $$
+
+We rewrite it as a polynomial in standard form.
+
+$$ p^7 - 76662p^3 - 33698267 $$
+
+We can [plot](https://www.desmos.com/calculator/wtro5wrl9q) this, which reveals the root 17.
+As an exercise for the reader, try solving for `q` from the hint instead of from `N`, and then substitute it into `N` instead of the hint.
+How does the solution compare to the given one?
