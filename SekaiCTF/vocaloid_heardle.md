@@ -48,7 +48,7 @@ Then each of these segments, one for each flag character, are concatenated.
 The first idea I had turned out to work perfectly.
 Say we have a sound clip, _x_, and a set of other sound clips, _a, b, c,..._, one of which contains the same sound as _x_.
 If _x_ and _a_ are different, then the size of compressing _x||a_, x concatenated with _a_, will be roughly the same as the size of compressing _x_ plus the size of compressing _a_.
-The compression algorithm can only do so a bit of compression.
+The compression algorithm can only do a bit of compression.
 
 
 On the other hand, say _x_ and _b_ are the same, then `sizeof(compress(x||b)) ≈ sizeof(compress(x||x)) ≈ sizeof(compress(x))`.
