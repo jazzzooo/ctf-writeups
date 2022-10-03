@@ -129,6 +129,6 @@ for i in range(11):
 ```
 Those of you who followed along and ran the code will have noticed that it got a letter wrong: `v0CaloFd<3u`.
 This is easily corrected, F should be I, but it shows that there is room for improvement.
-Using a different algorith, comparing by compression ratio instead of total difference, and working with the extracted raw audio data instead of mp3, would all likely yeald better results.
+Using a different algorithm, comparing by compression ratio instead of total difference, and working with the extracted raw audio data instead of mp3, would all likely yeald better results.
 
 
