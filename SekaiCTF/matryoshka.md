@@ -71,7 +71,7 @@ Apple recently patched this, so to get the Apple version of the image I could a)
 I used [OSX-KVM](https://github.com/kholia/OSX-KVM) and got the oldest macOS version it supported.
 Then I could simply open safari and look at the same image, getting a different QR code.
 
-![nomorepain?.png](SekaiCTF/qr2.png)
+![nomorepain?.png](https://raw.githubusercontent.com/jazzzooo/ctf-writeups/main/SekaiCTF/qr2.png)
 
 
 ### Part 3
